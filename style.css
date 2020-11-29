@@ -21,8 +21,4 @@ canvas {
   height: 100%;
 }
 
-@media screen and (max-width: 800px) {
-  canvas {
-    width: 30%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-}
+
