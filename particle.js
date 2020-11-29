@@ -52,7 +52,27 @@ export class Particle{
             g.addColorStop(1,`rgba(0,0,0,0)`)
             ctx.beginPath();
             ctx.fillStyle = g;
-            ctx.arc(this.x,this.y, this.radius, 0, Math.PI*2);
+
+ 
+            var type;
+            if((ctx.canvas.clientWidth < 1400 || ctx.canvas.clientHeight < 960 ) 
+            &&(ctx.canvas.clientWidth >= 700 && ctx.canvas.clientHeight >= 400)){
+                type = 1;
+            }
+            else if(ctx.canvas.clientWidth < 700 || ctx.canvas.clientHeight < 400){
+                type = 2;
+            }
+            else if(ctx.canvas.clientWidth>=1400 || ctx.canvas.clientHeight >=960){
+                type = 3;
+            }
+            if(type == 1){
+                ctx.arc(this.x,this.y, this.radius/2, 0, Math.PI*2); 
+            }else if(type == 2){
+                ctx.arc(this.x,this.y, this.radius/4, 0, Math.PI*2);
+            }else{
+                ctx.arc(this.x,this.y, this.radius, 0, Math.PI*2);  
+            }
+
             ctx.fill();
         }
     }
