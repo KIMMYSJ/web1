@@ -14,13 +14,24 @@ export class Text{
         this.canvas.height = stageHeight;
 
         const myText = str;
-        const fontWidth = 700;
-        const fontSize = 800;
+        var fontWidth = 700;
+        var fontSize = 800;
         const fontName = 'Hind';
+
+        if(stageHeight<960 || stageWidth < 1400){
+            fontWidth = 350;
+            fontSize = 400;
+        }
+        if
+        (stageHeight<400 || stageWidth <700){
+            fontWidth = 350/2;
+            fontSize = 200;
+        }
 
         //캔버스 공간 비우기
         this.ctx.clearRect(0,0,stageWidth,stageHeight);
         this.ctx.font = `${fontWidth} ${fontSize}px ${fontName}`;
+        
         this.ctx.fillStyle = `rgba(0,0,0,0.3)`;
         this.ctx.textBaseline = `middle`;
         const fontPos = this.ctx.measureText(myText);
@@ -51,12 +62,18 @@ export class Text{
         let i = 0;
         let width = 0;
         let pixel;
+
+        var den = density;
+
         
         for (let height = 0; height <stageHeight; height +=density){
             i++;
             const slide = (i % 2) == 0;
             width = 0;
             if(slide == 1){
+
+
+                
                 width +=6;
             }
         
@@ -76,8 +93,7 @@ export class Text{
                
             }
         }
-        console.log(pixel);
-        console.log(particles);
+
         return particles; 
     }
 }
