@@ -16,7 +16,17 @@ export class Visual{
     }
 
     show(stageWidth, stageHeight){
-        this.pos = this.text.setText('지은',20, stageWidth, stageHeight);
+        if((stageWidth < 1400 || stageHeight < 960 ) 
+        &&(stageWidth >= 700 && stageHeight >= 400)){
+            this.pos = this.text.setText('지은',10, stageWidth, stageHeight);
+        }
+        else if(stageWidth < 700 || stageHeight < 400){
+            this.pos = this.text.setText('지은',5, stageWidth, stageHeight);
+        }
+        else if(stageWidth>=1400 || stageHeight >=960){
+            this.pos = this.text.setText('지은',20, stageWidth, stageHeight);
+        }
+
         this.posTotal = this.pos.length - 1;
 
     }
